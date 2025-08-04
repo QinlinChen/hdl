@@ -123,8 +123,6 @@ module spi_engine_execution #(
   reg [7:0] last_bit_count = DATA_WIDTH-1;
   reg [7:0] left_aligned = 8'b0;
 
-  assign first_bit = ((bit_counter == 'h0) ||  (bit_counter == word_length));
-
   reg [15:0] cmd_d1;
 
   reg cpha = DEFAULT_SPI_CFG[0];
@@ -143,7 +141,7 @@ module spi_engine_execution #(
 
   wire last_bit;
   wire echo_last_bit;
-  wire first_bit;
+  wire first_bit = ((bit_counter == 'h0) ||  (bit_counter == word_length));
   wire end_of_word;
 
   wire [2:0] inst = cmd[14:12];

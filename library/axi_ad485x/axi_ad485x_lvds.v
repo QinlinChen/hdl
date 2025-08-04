@@ -183,6 +183,8 @@ module axi_ad485x_lvds #(
 
   wire       [HBW:0]  rx_data_pos_s;
   wire       [HBW:0]  rx_data_neg_s;
+  
+  wire                adc_cnvs_redge;
 
   // assgments
 

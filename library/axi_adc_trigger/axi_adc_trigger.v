@@ -154,6 +154,8 @@ module axi_adc_trigger #(
   wire                  embedded_trigger;
   wire                  external_trigger;
 
+  wire                  data_out_valid;
+
   reg                   trigger_a_d1; // synchronization flip flop
   reg                   trigger_a_d2; // synchronization flip flop
   reg                   trigger_a_d3;

@@ -153,6 +153,7 @@ module axi_ad9361_tx #(
 
   // internal signals
 
+  wire            dac_sync;
   wire            dac_data_sync_s;
   wire            dac_dds_format_s;
   wire    [15:0]  dac_datarate_s;

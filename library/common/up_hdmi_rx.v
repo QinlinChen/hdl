@@ -109,6 +109,7 @@ module up_hdmi_rx #(
   wire    [15:0]  up_vs_s;
   wire    [15:0]  up_hs_s;
   wire    [31:0]  up_clk_count_s;
+  wire            up_tpm_oos_s;
 
   // decode block select
 

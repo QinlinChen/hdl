@@ -237,6 +237,9 @@ module ethernet_vcu118 #(
   wire [QSFP_CNT*8-1:0]               qsfp_rx_pfc_req;
   wire [QSFP_CNT*8-1:0]               qsfp_rx_pfc_ack;
 
+  wire [QSFP_CNT-1:0] qsfp_modprsl_int;
+  wire [QSFP_CNT-1:0] qsfp_intl_int;
+
   generate
 
     for (n = 0; n < QSFP_CNT; n = n + 1) begin : qsfp
@@ -373,9 +376,6 @@ module ethernet_vcu118 #(
 
   reg [QSFP_CNT-1:0] qsfp_reset_reg = {QSFP_CNT{1'b0}};
   reg [QSFP_CNT-1:0] qsfp_lpmode_reg = {QSFP_CNT{1'b0}};
-
-  wire [QSFP_CNT-1:0] qsfp_modprsl_int;
-  wire [QSFP_CNT-1:0] qsfp_intl_int;
 
   reg i2c_scl_o_reg = 1'b1;
   reg i2c_sda_o_reg = 1'b1;

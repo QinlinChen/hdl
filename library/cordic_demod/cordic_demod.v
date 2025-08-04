@@ -48,6 +48,12 @@ module cordic_demod (
   output [63:0] m_axis_data
 );
 
+  localparam STATE_IDLE = 0;
+  localparam STATE_SHIFT_LOAD = 1;
+  localparam STATE_SHIFT = 2;
+  localparam STATE_ADD = 3;
+  localparam STATE_DONE = 4;
+
   reg [4:0] step_counter;
   reg [4:0] shift_counter;
   reg [30:0] phase;
@@ -61,12 +67,6 @@ module cordic_demod (
   assign s_axis_ready = state == STATE_IDLE;
   assign m_axis_data = {q[32:1],i[32:1]};
   assign m_axis_valid = state == STATE_DONE;
-
-  localparam STATE_IDLE = 0;
-  localparam STATE_SHIFT_LOAD = 1;
-  localparam STATE_SHIFT = 2;
-  localparam STATE_ADD = 3;
-  localparam STATE_DONE = 4;
 
   reg [31:0] angle[0:30];
 

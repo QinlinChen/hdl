@@ -83,6 +83,8 @@ module util_gmii_to_rgmii #(
   wire  [ 7:0]    gmii_rxd_s;
   wire            rgmii_rx_ctl_delay;
   wire            rgmii_rx_ctl_s;
+  wire            gmii_tx_clk_s;
+  wire            gmii_rx_dv_s;
 
   wire  [ 1:0]    speed_selection; // 1x gigabit, 01 100Mbps, 00 10mbps
   wire            duplex_mode;     // 1 full, 0 half

@@ -159,6 +159,7 @@ module axi_dacfifo_rd #(
   wire    [(DAC_MEM_ADDRESS_WIDTH-1):0] dac_mem_waddr_m2_g2b_s;
   wire    [    DAC_MEM_ADDRESS_WIDTH:0] dac_mem_addr_diff_s;
   wire    [(DAC_MEM_ADDRESS_WIDTH-1):0] dac_mem_laddr_s;
+  wire                                  dac_mem_dunf_s;
 
   // Asymmetric memory to transfer data from AXI_MM interface to DAC FIFO
   // interface
