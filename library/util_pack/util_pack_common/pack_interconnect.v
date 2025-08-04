@@ -60,10 +60,10 @@ module pack_interconnect #(
   localparam NUM_PORTS = 2**PORT_ADDRESS_WIDTH;
   localparam TOTAL_DATA_WIDTH = PORT_DATA_WIDTH * NUM_PORTS;
 
-  wire [TOTAL_DATA_WIDTH-1:0] interconnect[0:NUM_STAGES];
+  wire [TOTAL_DATA_WIDTH-1:0] interconn[0:NUM_STAGES];
 
-  assign interconnect[0] = data_in;
-  assign data_out = interconnect[NUM_STAGES];
+  assign interconn[0] = data_in;
+  assign data_out = interconn[NUM_STAGES];
 
   generate
     genvar i, j;
@@ -116,13 +116,13 @@ module pack_interconnect #(
        * Unpack is shuffle followed by MUX.
        */
       if (PACK) begin
-        assign mux_in = interconnect[i];
+        assign mux_in = interconn[i];
         assign shuffle_in = mux_out;
-        assign interconnect[i+1] = shuffle_out;
+        assign interconn[i+1] = shuffle_out;
       end else begin
-        assign shuffle_in = interconnect[i];
+        assign shuffle_in = interconn[i];
         assign mux_in = shuffle_out;
-        assign interconnect[i+1] = mux_out;
+        assign interconn[i+1] = mux_out;
       end
   end
   endgenerate
